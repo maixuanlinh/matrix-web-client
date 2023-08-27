@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
+import { RxHome } from "react-icons/rx";
 
 const HomePage = () => {
   const [isDragging, setIsDragging] = useState(false);
@@ -67,6 +68,13 @@ const HomePage = () => {
           </div>
           {/* underline */}
           <div className="h-[1px] bg-gray-300 mx-3"></div>
+
+            {/* home icon row */}
+            <div className="div flex items-center ml-2 mt-1">
+            <RxHome className="mx-2 mt-1 w-[40px] h-[40px] p-2"></RxHome>
+            <span className="text-md ">Home</span>
+          </div>
+
         </div>
 
         {/* search & room row */}
