@@ -30,7 +30,7 @@ jobs:
     - name: Deploy to Azure
       uses: azure/webapps-deploy@v2
       with:
-        app-name: ShopShop
+        app-name: Matrix-React-App
         slot-name: 'production'
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AA2BB18E7E8B4783AFB19E11F9468380 }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AC5DF6EC1BE54B6DBCE7A2178E53D175 }}
         package: .
