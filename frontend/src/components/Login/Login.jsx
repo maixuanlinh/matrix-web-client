@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AiOutlineEye, AiOutlineEyeInvisible} from  "react-icons/ai";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../../styles/styles";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -15,21 +15,32 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await axios.post(`${server}/user/login-user`, {
-      email,
-      password,
-    }, {withCredentials:true}).then((res) => {
-      toast.success("Login Success!");
-      navigate("/");
-      window.location.reload(true);
-      
-    }).catch((err) => {
-      toast.error(err.response.data.message);
-    });
-  }
+    await axios
+      .post(
+        `${server}/user/login-user`,
+        {
+          email,
+          password,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => {
+        toast.success("Login Success!");
+        navigate("/");
+        window.location.reload(true);
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message);
+      });
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="flex justify-center">
+      <img src="/logo192.png"
+      alt="" className="w-[150px] h-[150px] rounded-full" />
+      </div>
+
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
           Login to your account
@@ -115,23 +126,23 @@ const Login = () => {
                 >
                   Forgot your password
                 </a>
-              </div> 
+              </div>
             </div>
 
             <div>
-                <button 
+              <button
                 type="submit"
-                className="group relaative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
-                    SUBMIT
-                </button>
+                className="group relaative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+              >
+                SUBMIT
+              </button>
             </div>
 
             <div className={`${styles.normalFlex} w-full`}>
-                        <h4> Not have any account?</h4>
-                        <Link to="/sign-up" className="text-blue-600 pl-2">
-                            Sign Up
-                        </Link>
-
+              <h4> Not have any account?</h4>
+              <Link to="/sign-up" className="text-blue-600 pl-2">
+                Sign Up
+              </Link>
             </div>
           </form>
         </div>

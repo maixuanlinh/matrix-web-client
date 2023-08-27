@@ -15,10 +15,8 @@ import { server } from "../server";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import IntroSection from "../components/IntroSection";
 
-
-const HomePage = () => {
+const ChatRoomPage = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [isHomePopupVisible, setHomePopupVisible] = useState(false);
   const [isHomeOrAllRooms, setIsHomeOrAllRooms] = useState(false);
@@ -33,8 +31,9 @@ const HomePage = () => {
   const logOut = () => {   
     axios.get(`${server}/user/logout`, {withCredentials: true}).then((res) => {
         toast.success(res.data.message);
-              
+               
         navigate("/login");
+
         window.location.reload(true);
 
     }).catch((error) => {
@@ -222,10 +221,10 @@ const HomePage = () => {
 
       {/* right column */}
       <div id="rightColumn" className="bg-white flex-grow h-[100%]">
-        <IntroSection />
+        <ChatSection />
       </div>
     </div>
   );
 };
 
-export default HomePage;
+export default ChatRoomPage;
