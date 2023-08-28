@@ -15,8 +15,10 @@ import { server } from "../server";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 const ChatRoomPage = () => {
+  const { user } = useSelector((state) => state.user);
   const [isDragging, setIsDragging] = useState(false);
   const [isHomePopupVisible, setHomePopupVisible] = useState(false);
   const [isHomeOrAllRooms, setIsHomeOrAllRooms] = useState(false);
@@ -28,20 +30,20 @@ const ChatRoomPage = () => {
     setHomePopupVisible(!isHomePopupVisible);
   };
 
-  const logOut = () => {   
-    axios.get(`${server}/user/logout`, {withCredentials: true}).then((res) => {
+  const logOut = () => {
+    axios
+      .get(`${server}/user/logout`, { withCredentials: true })
+      .then((res) => {
         toast.success(res.data.message);
-               
+
         navigate("/login");
 
         window.location.reload(true);
-
-    }).catch((error) => {
-     
+      })
+      .catch((error) => {
         console.log(error.response.data.message);
-    })
-   }
-
+      });
+  };
 
   useEffect(() => {
     const leftColumn = document.getElementById("leftColumn");
@@ -102,7 +104,7 @@ const ChatRoomPage = () => {
               onClick={() => setUserPopupVisible(!isUserPopupVisible)}
             >
               <img
-                src="https://media.licdn.com/dms/image/D4D03AQGRTSB6kPNtNg/profile-displayphoto-shrink_200_200/0/1665350444937?e=1698883200&v=beta&t=wG1IMvEzIkoM1hSGRSEbLcqkdahxcngwu78DpxmjRXw"
+                src={user?.avatar}
                 alt=""
                 className="w-[40px] h-[40px] rounded-full m-2"
               />
@@ -112,7 +114,6 @@ const ChatRoomPage = () => {
             {/* Popup */}
             {isUserPopupVisible && (
               <div className="absolute top-0 left-full w-[200px] bg-white z-20 mt-2 border border-gray-300 shadow-lg rounded-lg p-3">
-
                 <h3 className="text-md font-bold text-gray-500 ml-2 mt-2 mb-3">
                   Linh Mai
                 </h3>
@@ -121,8 +122,8 @@ const ChatRoomPage = () => {
                 <div
                   className={`flex items-center mx-2 mt-2 justify-left hover:bg-gray-200 cursor-pointer transition duration-300`}
                   onClick={logOut}
-                > 
-                 <RiLogoutBoxFill className="text-gray-500 w-[25px] h-[25px] text-red-500 mr-2" />
+                >
+                  <RiLogoutBoxFill className="text-gray-500 w-[25px] h-[25px] text-red-500 mr-2" />
                   Logout
                 </div>
               </div>

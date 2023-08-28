@@ -3,13 +3,15 @@ import GetStartedButton from "./GetStartedButton.jsx";
 import { AiOutlineMessage } from "react-icons/ai";
 import { RiCompassDiscoverFill } from "react-icons/ri";
 import { HiUserGroup } from "react-icons/hi";
+import { useSelector } from "react-redux";
 
 const IntroSection = () => {
+  const { user } = useSelector((state) => state.user);
   return (
     <div className="w-[100%] h-[100vh] flex justify-center">
       <div className="flex flex-col justify-center items-center">
         <img
-          src="https://media.licdn.com/dms/image/D4D03AQGRTSB6kPNtNg/profile-displayphoto-shrink_200_200/0/1665350444937?e=1698883200&v=beta&t=wG1IMvEzIkoM1hSGRSEbLcqkdahxcngwu78DpxmjRXw"
+          src={user?.avatar}
           alt=""
           className="w-[150px] h-[150px] rounded-full"
         />

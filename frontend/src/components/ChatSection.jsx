@@ -12,6 +12,7 @@ import { GrAttachment } from "react-icons/gr";
 import { MdEmojiEmotions } from "react-icons/md";
 import EmojiPicker from "emoji-picker-react";
 function ChatSection() {
+  
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [roomId, setRoomId] = useState(null);
