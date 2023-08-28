@@ -32,7 +32,7 @@ function ChatSection() {
   console.log("react app access token", process.env.REACT_APP_ACCESS_TOKEN);
   const matrixClient = matrix.createClient({
     baseUrl: "https://matrix.org",
-    accessToken: process.env.REACT_APP_ACCESS_TOKEN,
+    accessToken: "syt_bGluaG1haQ_mqykSMcolXYJUzHFPYul_2Ej2hQ",
     userId: "@linhmai:matrix.org",
   });
 
