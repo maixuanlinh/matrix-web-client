@@ -108,14 +108,14 @@ const HomePage = () => {
                 alt=""
                 className="w-[40px] h-[40px] rounded-full m-2"
               />
-              <span className="text-md font-bold">Linh Mai</span>
+              <span className="text-md font-bold">{user?.name}</span>
             </div>
 
             {/* Popup */}
             {isUserPopupVisible && (
               <div className="absolute top-0 left-full w-[200px] bg-white z-20 mt-2 border border-gray-300 shadow-lg rounded-lg p-3">
                 <h3 className="text-md font-bold text-gray-500 ml-2 mt-2 mb-3">
-                  Linh Mai
+                  {user?.name}
                 </h3>
                 <span className="ml-2">@linhmai:matrix.org</span>
                 <div className="h-[1px] bg-gray-300 mt-2"></div>

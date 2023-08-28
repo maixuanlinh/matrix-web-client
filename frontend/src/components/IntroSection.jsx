@@ -16,7 +16,7 @@ const IntroSection = () => {
           className="w-[150px] h-[150px] rounded-full"
         />
 
-        <h1 className="text-3xl font-bold mt-3 mb-1">Welcome Linh Mai</h1>
+        <h1 className="text-3xl font-bold mt-3 mb-1">{`Welcome ${user?.name}`}</h1>
         <h2 className="text-gray-500 text-2xl mb-6">
           Now let's help you get started
         </h2>
