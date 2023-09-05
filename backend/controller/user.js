@@ -14,7 +14,7 @@ const { isAuthenticated } = require("../middleware/auth");
 
 const { BlobServiceClient } = require("@azure/storage-blob");
 const backend_url = process.env.NODE_ENV === "production"
-  ? "matrix-react-app.azurewebsites.net"
+  ? "https://matrix-react-app.azurewebsites.net"
   : "http://localhost:3000";
 
 const AZURE_STORAGE_CONNECTION_STRING =
